@@ -20,6 +20,8 @@ jobs:
         run: |
           set -euo pipefail
           git fetch --no-tags origin '+refs/heads/retrom/g814991a2571a:refs/remotes/origin/retrom/g814991a2571a'
+          # Checkout may flatten its local tag ref to the peeled commit.
+          git fetch --force origin "refs/tags/$GITHUB_REF_NAME:refs/tags/$GITHUB_REF_NAME"
           test "$(git cat-file -t "refs/tags/$GITHUB_REF_NAME")" = tag
           test "$(git rev-list -n 1 "refs/tags/$GITHUB_REF_NAME")" = "$GITHUB_SHA"
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
