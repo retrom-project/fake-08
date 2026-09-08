@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <array>
 #include "PicoRam.h"
 
 class Input{
@@ -18,6 +19,8 @@ class Input{
 	
     public:
     Input(PicoRam* memory);
+    std::array<uint16_t, 10> retromState() const;
+    void retromRestore(const std::array<uint16_t, 10>& state);
     void SetState(uint8_t kdown, uint8_t kheld);
     void SetMouse(int16_t mouseX, int16_t mouseY, uint8_t mouseBtnState);
 	

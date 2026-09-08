@@ -376,6 +376,7 @@ eris.restore_all = function(persisted)
   for k,v in pairs(new_symbols) do
     _G[k] = v
   end
+  rawset(debug.getregistry(), "__PICO8_SANDBOX", __cart_sandbox)
 end
 
 function __z8_strlen(s)

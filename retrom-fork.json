@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "forkRepository": "https://github.com/retrom-project/fake-08",
+  "defaultBranch": "retrom/g814991a2571a",
+  "upstreamMirrorBranch": "master",
+  "upstreams": [
+    {
+      "role": "engine",
+      "repository": "https://github.com/jtothebell/fake-08",
+      "refType": "COMMIT",
+      "ref": "814991a2571ad3970e386cef48f3b148aa1c27b9",
+      "commit": "814991a2571ad3970e386cef48f3b148aa1c27b9"
+    }
+  ],
+  "releaseTagPattern": "^retrom-core-g814991a2571a-r[1-9][0-9]*(-rc\\.[1-9][0-9]*)?$",
+  "adapterAbi": "fake08-state-v1",
+  "releaseAssets": [
+    "fake08-retrom.mjs",
+    "fake08-retrom.wasm",
+    "LICENSES.txt",
+    "rpg-runtime-release.json"
+  ]
+}
