@@ -1,7 +1,7 @@
 name: Retrom Web candidate
 on:
   push:
-    branches: ['feat/retrom-web', 'retrom/**']
+    branches: ['retrom/**']
   pull_request:
 concurrency:
   group: retrom-web-${{ github.event.pull_request.number || github.ref }}

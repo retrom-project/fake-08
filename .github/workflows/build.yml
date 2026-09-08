@@ -2,9 +2,8 @@ name: fake-08
 
 on:
   push:
-    branches: '**'
+    branches: ['master', 'retrom/**']
   pull_request:
-    branches: [ $default-branch ]
 
 concurrency:
   group: upstream-build-${{ github.event.pull_request.number || github.ref }}
