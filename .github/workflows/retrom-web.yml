@@ -1,0 +1,19 @@
+name: Retrom Web candidate
+on:
+  push:
+    branches: ['feat/retrom-web', 'retrom/**']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  candidate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Build and verify the Web ABI
+        run: |
+          mkdir -p "$RUNNER_TEMP/core-candidate"
+          .github/rpg-runtime/build-candidate.sh "$RUNNER_TEMP/core-candidate"

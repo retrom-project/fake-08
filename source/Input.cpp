@@ -121,3 +121,14 @@ const char* Input::getKey() {
     return _kbKey.c_str();
 }
 
+
+std::array<uint16_t, 10> Input::retromState() const {
+    std::array<uint16_t, 10> state{};
+    std::copy(_framesHeld, _framesHeld + 8, state.begin());
+    state[8] = _currentKDown; state[9] = _currentKHeld;
+    return state;
+}
+void Input::retromRestore(const std::array<uint16_t, 10>& state) {
+    std::copy(state.begin(), state.begin() + 8, _framesHeld);
+    _currentKDown = state[8]; _currentKHeld = state[9];
+}

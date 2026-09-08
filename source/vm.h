@@ -173,7 +173,9 @@ class Vm {
     string getCartBreadcrumb();
     string getCartParam();
 
-    size_t serializeLuaState(char* dest);
-    void deserializeLuaState(const char* src, size_t len);
+    size_t serializeLuaState(char* dest, size_t capacity = 1024 * 1024);
+    bool deserializeLuaState(const char* src, size_t len);
+    std::vector<unsigned char> retromSave();
+    bool retromRestore(const unsigned char* bytes, size_t size);
 };
 
