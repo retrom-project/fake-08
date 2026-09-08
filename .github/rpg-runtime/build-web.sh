@@ -10,3 +10,4 @@ docker run --rm --user "$(id -u):$(id -g)" \
   bash retrom/build-inside.sh
 python3 "$root/retrom/licenses.py" "$output/LICENSES.txt"
 python3 "$root/retrom/release-test.py" "$output"
+python3 "$root/retrom/release-tag-test.py"
